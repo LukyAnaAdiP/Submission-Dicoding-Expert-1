@@ -1,12 +1,12 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit'
 
-import { asyncGetUsers } from './actions';
+import { asyncGetUsers } from './actions'
 
 const initialState = {
   users: [],
   isLoading: false,
-  error: null,
-};
+  error: null
+}
 
 const usersSlice = createSlice({
   name: 'users',
@@ -15,18 +15,18 @@ const usersSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(asyncGetUsers.pending, (state) => {
-        state.isLoading = true;
-        state.error = null;
+        state.isLoading = true
+        state.error = null
       })
       .addCase(asyncGetUsers.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.users = action.payload;
+        state.isLoading = false
+        state.users = action.payload
       })
       .addCase(asyncGetUsers.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.error.message;
-      });
-  },
-});
+        state.isLoading = false
+        state.error = action.error.message
+      })
+  }
+})
 
-export default usersSlice.reducer;
+export default usersSlice.reducer

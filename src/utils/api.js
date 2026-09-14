@@ -1,21 +1,21 @@
-const BASE_URL = 'https://forum-api.dicoding.dev/v1';
+const BASE_URL = 'https://forum-api.dicoding.dev/v1'
 
 const api = async (url, options = {}) => {
   const response = await fetch(`${BASE_URL}${url}`, {
     ...options,
     headers: {
       'Content-Type': 'application/json',
-      ...options.headers,
-    },
-  });
+      ...options.headers
+    }
+  })
 
-  const responseJson = await response.json();
+  const responseJson = await response.json()
 
   if (!response.ok) {
-    throw new Error(responseJson.message);
+    throw new Error(responseJson.message)
   }
 
-  return responseJson;
-};
+  return responseJson
+}
 
-export default api;
+export default api

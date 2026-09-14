@@ -1,6 +1,6 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk } from '@reduxjs/toolkit'
 
-import api from '../../utils/api';
+import api from '../../utils/api'
 
 const asyncRegister = createAsyncThunk(
   'auth/register',
@@ -10,13 +10,13 @@ const asyncRegister = createAsyncThunk(
       body: JSON.stringify({
         name,
         email,
-        password,
-      }),
-    });
+        password
+      })
+    })
 
-    return response.data.user;
-  },
-);
+    return response.data.user
+  }
+)
 
 const asyncLogin = createAsyncThunk(
   'auth/login',
@@ -25,29 +25,29 @@ const asyncLogin = createAsyncThunk(
       method: 'POST',
       body: JSON.stringify({
         email,
-        password,
-      }),
-    });
+        password
+      })
+    })
 
-    return response.data.token;
-  },
-);
+    return response.data.token
+  }
+)
 
 const asyncGetOwnProfile = createAsyncThunk(
   'auth/getOwnProfile',
   async (token) => {
     const response = await api('/users/me', {
       headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+        Authorization: `Bearer ${token}`
+      }
+    })
 
-    return response.data.user;
-  },
-);
+    return response.data.user
+  }
+)
 
 export {
   asyncGetOwnProfile,
   asyncLogin,
-  asyncRegister,
-};
+  asyncRegister
+}

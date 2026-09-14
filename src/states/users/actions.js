@@ -1,16 +1,16 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk } from '@reduxjs/toolkit'
 
-import api from '../../utils/api';
+import api from '../../utils/api'
 
 const asyncGetUsers = createAsyncThunk(
   'users/getUsers',
   async () => {
-    const response = await api('/users');
+    const response = await api('/users')
 
-    return response.data.users;
-  },
-);
+    return response.data.users
+  }
+)
 
 export {
-  asyncGetUsers,
-};
+  asyncGetUsers
+}

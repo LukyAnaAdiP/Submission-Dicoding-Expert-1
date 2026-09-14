@@ -1,22 +1,22 @@
-import ThreadItem from './ThreadItem';
+import ThreadItem from './ThreadItem'
 
-function ThreadList({ threads, users }) {
+function ThreadList ({ threads, users }) {
   if (threads.length === 0) {
     return (
-      <div className="rounded-2xl border border-dashed border-slate-300 p-10 text-center">
-        <p className="text-slate-500">
+      <div className='rounded-2xl border border-dashed border-slate-300 p-10 text-center'>
+        <p className='text-slate-500'>
           Belum ada thread.
         </p>
       </div>
-    );
+    )
   }
 
   return (
-    <div className="space-y-4">
+    <div className='space-y-4'>
       {threads.map((thread) => {
         const owner = users.find(
-          (user) => user.id === thread.ownerId,
-        );
+          (user) => user.id === thread.ownerId
+        )
 
         return (
           <ThreadItem
@@ -24,10 +24,10 @@ function ThreadList({ threads, users }) {
             thread={thread}
             owner={owner}
           />
-        );
+        )
       })}
     </div>
-  );
+  )
 }
 
-export default ThreadList;
+export default ThreadList

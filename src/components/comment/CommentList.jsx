@@ -1,14 +1,14 @@
-import CommentItem from './CommentItem';
+import CommentItem from './CommentItem'
 
-function CommentList({ comments }) {
+function CommentList ({ comments }) {
   if (comments.length === 0) {
     return (
-      <div className="py-8 text-center">
-        <p className="text-slate-500">
+      <div className='py-8 text-center'>
+        <p className='text-slate-500'>
           Belum ada komentar.
         </p>
       </div>
-    );
+    )
   }
 
   return (
@@ -20,7 +20,7 @@ function CommentList({ comments }) {
         />
       ))}
     </div>
-  );
+  )
 }
 
-export default CommentList;
+export default CommentList
