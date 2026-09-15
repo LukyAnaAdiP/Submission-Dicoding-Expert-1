@@ -36,7 +36,6 @@ const authSlice = createSlice({
 
   extraReducers: (builder) => {
     builder
-      // Register
       .addCase(asyncRegister.pending, (state) => {
         state.isRegistering = true
         state.registerError = null
@@ -49,7 +48,6 @@ const authSlice = createSlice({
         state.registerError = action.error.message
       })
 
-      // Login
       .addCase(asyncLogin.pending, (state) => {
         state.isLoading = true
         state.error = null
@@ -63,7 +61,6 @@ const authSlice = createSlice({
         state.error = action.error.message
       })
 
-      // Own profile
       .addCase(asyncGetOwnProfile.pending, (state) => {
         state.isGettingProfile = true
         state.profileError = null

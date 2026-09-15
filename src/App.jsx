@@ -8,6 +8,7 @@ import RegisterPage from './pages/RegisterPage'
 import Navbar from './components/layout/Navbar'
 import ProtectedRoute from './components/auth/ProtectedRoute'
 import CreateThreadPage from './pages/CreateThreadPage'
+import LeaderboardPage from './pages/LeaderboradPage'
 
 function App () {
   return (
@@ -17,6 +18,7 @@ function App () {
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/threads/:threadId' element={<ThreadDetailPage />} />
+          <Route path='/leaderboard' element={<LeaderboardPage />} />
           <Route path='/login' element={<LoginPage />} />
           <Route path='/register' element={<RegisterPage />} />
           <Route

@@ -28,7 +28,6 @@ const threadsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      // Threads
       .addCase(asyncGetThreads.pending, (state) => {
         state.isLoading = true
         state.error = null
@@ -42,7 +41,6 @@ const threadsSlice = createSlice({
         state.error = action.error.message
       })
 
-      // Detail Threads
       .addCase(asyncGetThreadDetail.pending, (state) => {
         state.isDetailLoading = true
         state.detailError = null
@@ -57,7 +55,6 @@ const threadsSlice = createSlice({
         state.detailError = action.error.message
       })
 
-      // Create Thread
       .addCase(asyncCreateThread.pending, (state) => {
         state.isCreating = true
         state.createError = null
@@ -75,7 +72,6 @@ const threadsSlice = createSlice({
         state.createError = action.error.message
       })
 
-      // Create Comment
       .addCase(asyncCreateComment.pending, (state) => {
         state.isCreateingComment = true
         state.commentError = null

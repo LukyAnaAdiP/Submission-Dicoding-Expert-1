@@ -1,19 +1,17 @@
+import { MessageSquareMore } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 import formatDate from '../../utils/formatDate'
 
 function ThreadItem ({ thread, owner }) {
   return (
-    <article className='rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:shadow-md'>
+    <article className='rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md'>
       <div className='mb-3 flex items-center justify-between gap-3'>
-        <span className='rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600'>
+        <span className='rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-600'>
           #{thread.category}
         </span>
 
-        <time
-          dateTime={thread.createdAt}
-          className='text-xs text-slate-400'
-        >
+        <time dateTime={thread.createdAt} className='text-xs text-slate-400'>
           {formatDate(thread.createdAt)}
         </time>
       </div>
@@ -49,14 +47,13 @@ function ThreadItem ({ thread, owner }) {
               {owner?.name ?? 'Unknown User'}
             </p>
 
-            <p className='text-xs text-slate-400'>
-              Pembuat thread
-            </p>
+            <p className='text-xs text-slate-400'>Pembuat thread</p>
           </div>
         </div>
 
-        <div className='text-sm text-slate-500'>
-          {thread.totalComments} komentar
+        <div className='flex items-center gap-1.5 text-sm text-slate-500'>
+          <MessageSquareMore className='h-4 w-4' />
+          <span>{thread.totalComments} komentar</span>
         </div>
       </div>
     </article>

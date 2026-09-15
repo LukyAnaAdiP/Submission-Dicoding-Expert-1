@@ -9,6 +9,7 @@ import {
   asyncCreateComment
 } from '../states/threads/actions'
 import formatDate from '../utils/formatDate'
+import { ArrowLeft } from 'lucide-react'
 
 function ThreadDetailPage () {
   const { threadId } = useParams()
@@ -73,9 +74,10 @@ function ThreadDetailPage () {
       <div className='mx-auto max-w-4xl px-4 py-8 sm:px-6'>
         <Link
           to='/'
-          className='mb-6 inline-flex text-sm font-medium text-blue-600 hover:text-blue-700'
+          className='mb-6 inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 hover:text-blue-700'
         >
-          ← Kembali ke forum
+          <ArrowLeft className='h-4.5 w-4.5' />
+          Kembali ke forum
         </Link>
 
         <article className='rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8'>
