@@ -49,5 +49,24 @@ export default [
         version: 'detect'
       }
     }
+  },
+
+  {
+    files: ['cypress/**/*.js', 'cypress/**/*.jsx'],
+
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node
+      }
+    },
+
+    plugins: {
+      cypress
+    },
+
+    rules: {
+      ...cypress.configs.recommended.rules
+    }
   }
 ]
