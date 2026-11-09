@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "test": "vitest --no-watch",
     "e2e": "cypress run",
-    "ci:test": "vitest --no-watch && start-server-and-test dev http-get://0.0.0.0:5173 e2e"
+    "ci:test": "vitest --no-watch && start-server-and-test \"npm run dev -- --host 0.0.0.0\" http://127.0.0.1:5173 e2e"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.12.0",
