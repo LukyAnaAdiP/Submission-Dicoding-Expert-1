@@ -52,7 +52,7 @@ describe("CommentItem component", () => {
     render(<CommentItem comment={comment} />);
 
     const commentContent = screen.getByText("Saya sedang belajar React.");
-    expect(commentContent).not.toBeInTheDocument();
+    expect(commentContent).toBeInTheDocument();
   });
 
   it("should display comment date correctly", () => {
