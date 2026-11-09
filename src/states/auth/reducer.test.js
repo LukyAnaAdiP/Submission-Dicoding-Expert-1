@@ -1,9 +1,5 @@
 import { describe, it, expect, vi } from 'vitest'
 
-vi.mock('../../utils/storage', () => ({
-  getToken: vi.fn(() => null)
-}))
-
 import authReducer, { logout, setToken } from './reducer'
 
 import {
@@ -11,6 +7,10 @@ import {
   asyncLogin,
   asyncRegister
 } from './actions'
+
+vi.mock('../../utils/storage', () => ({
+  getToken: vi.fn(() => null)
+}))
 
 /**
  * Skenario pengujian untuk authReducer

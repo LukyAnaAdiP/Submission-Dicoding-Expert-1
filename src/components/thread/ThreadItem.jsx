@@ -1,16 +1,16 @@
-import { motion } from "framer-motion";
-import { MessageSquareMore } from "lucide-react";
-import { Link } from "react-router-dom";
+import { motion } from 'framer-motion'
+import { MessageSquareMore } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
-import formatDate from "../../utils/formatDate";
+import formatDate from '../../utils/formatDate'
 
-function ThreadItem({ thread, owner }) {
+function ThreadItem ({ thread, owner }) {
   return (
     <motion.article
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       whileHover={{ y: -4 }}
-      transition={{ duration: 0.3, ease: "easeOut" }}
+      transition={{ duration: 0.3, ease: 'easeOut' }}
       className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:shadow-md"
     >
       <div className="mb-3 flex items-center justify-between gap-3">
@@ -35,21 +35,23 @@ function ThreadItem({ thread, owner }) {
 
       <div className="mt-5 flex items-center justify-between border-t border-slate-100 pt-4">
         <div className="flex items-center gap-3">
-          {owner?.avatar ? (
+          {owner?.avatar
+            ? (
             <img
               src={owner.avatar}
               alt={owner.name}
               className="h-9 w-9 rounded-full object-cover"
             />
-          ) : (
+              )
+            : (
             <div className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-200 text-sm font-semibold text-slate-600">
-              {owner?.name?.charAt(0) ?? "?"}
+              {owner?.name?.charAt(0) ?? '?'}
             </div>
-          )}
+              )}
 
           <div>
             <p className="text-sm font-medium text-slate-800">
-              {owner?.name ?? "Unknown User"}
+              {owner?.name ?? 'Unknown User'}
             </p>
 
             <p className="text-xs text-slate-400">Pembuat thread</p>
@@ -62,7 +64,7 @@ function ThreadItem({ thread, owner }) {
         </div>
       </div>
     </motion.article>
-  );
+  )
 }
 
-export default ThreadItem;
+export default ThreadItem

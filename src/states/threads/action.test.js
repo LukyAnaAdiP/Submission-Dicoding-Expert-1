@@ -1,13 +1,4 @@
-
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-
-vi.mock('../../utils/api', () => ({
-  default: vi.fn()
-}))
-
-vi.mock('../../utils/storage', () => ({
-  getToken: vi.fn(() => 'token-test')
-}))
 
 import api from '../../utils/api'
 import { getToken } from '../../utils/storage'
@@ -18,6 +9,14 @@ import {
   asyncGetThreadDetail,
   asyncGetThreads
 } from './actions'
+
+vi.mock('../../utils/api', () => ({
+  default: vi.fn()
+}))
+
+vi.mock('../../utils/storage', () => ({
+  getToken: vi.fn(() => 'token-test')
+}))
 
 /**
  * Skenario pengujian untuk threads actions (async thunk)

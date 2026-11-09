@@ -1,8 +1,8 @@
-import React from "react";
-import { describe, it, expect, vi, afterEach } from "vitest";
-import { render, screen, cleanup } from "@testing-library/react";
-import CommentItem from "./CommentItem";
-import "@testing-library/jest-dom";
+import React from 'react'
+import { describe, it, expect, vi, afterEach } from 'vitest'
+import { render, screen, cleanup } from '@testing-library/react'
+import CommentItem from './CommentItem'
+import '@testing-library/jest-dom'
 
 /**
  * skenario testing
@@ -17,116 +17,116 @@ import "@testing-library/jest-dom";
  *   - should display Unknown User when owner is unavailable
  */
 
-vi.mock("../../utils/formatDate", () => ({
-  default: vi.fn(() => "4 November 2026"),
-}));
+vi.mock('../../utils/formatDate', () => ({
+  default: vi.fn(() => '4 November 2026')
+}))
 
 afterEach(() => {
-  cleanup();
-});
+  cleanup()
+})
 
-describe("CommentItem component", () => {
-  it("should display comment owner name correctly", () => {
+describe('CommentItem component', () => {
+  it('should display comment owner name correctly', () => {
     const comment = {
       owner: {
-        name: "Luky",
-        avatar: "https://example.com/avatar.png",
+        name: 'Luky',
+        avatar: 'https://example.com/avatar.png'
       },
-      createdAt: "2026-11-04T08:00:00.000Z",
-      content: "Saya sedang belajar React.",
-    };
+      createdAt: '2026-11-04T08:00:00.000Z',
+      content: 'Saya sedang belajar React.'
+    }
 
-    render(<CommentItem comment={comment} />);
+    render(<CommentItem comment={comment} />)
 
-    const ownerName = screen.getByText("Luky");
-    expect(ownerName).toBeInTheDocument();
-  });
+    const ownerName = screen.getByText('Luky')
+    expect(ownerName).toBeInTheDocument()
+  })
 
-  it("should display comment content correctly", () => {
+  it('should display comment content correctly', () => {
     const comment = {
-      owner: { name: "Luky", avatar: null },
-      createdAt: "2026-11-04T08:00:00.000Z",
-      content: "Saya sedang belajar React.",
-    };
+      owner: { name: 'Luky', avatar: null },
+      createdAt: '2026-11-04T08:00:00.000Z',
+      content: 'Saya sedang belajar React.'
+    }
 
-    render(<CommentItem comment={comment} />);
+    render(<CommentItem comment={comment} />)
 
-    const commentContent = screen.getByText("Saya sedang belajar React.");
-    expect(commentContent).toBeInTheDocument();
-  });
+    const commentContent = screen.getByText('Saya sedang belajar React.')
+    expect(commentContent).toBeInTheDocument()
+  })
 
-  it("should display comment date correctly", () => {
+  it('should display comment date correctly', () => {
     const comment = {
-      owner: { name: "Luky", avatar: null },
-      createdAt: "2026-11-04T08:00:00.000Z",
-      content: "Komentar pertama.",
-    };
+      owner: { name: 'Luky', avatar: null },
+      createdAt: '2026-11-04T08:00:00.000Z',
+      content: 'Komentar pertama.'
+    }
 
-    render(<CommentItem comment={comment} />);
+    render(<CommentItem comment={comment} />)
 
-    const commentDate = screen.getByText("4 November 2026");
-    expect(commentDate).toBeInTheDocument();
-  });
+    const commentDate = screen.getByText('4 November 2026')
+    expect(commentDate).toBeInTheDocument()
+  })
 
-  it("should display owner avatar when avatar is available", () => {
+  it('should display owner avatar when avatar is available', () => {
     const comment = {
       owner: {
-        name: "Luky",
-        avatar: "https://example.com/avatar.png",
+        name: 'Luky',
+        avatar: 'https://example.com/avatar.png'
       },
-      createdAt: "2026-11-04T08:00:00.000Z",
-      content: "Komentar pertama.",
-    };
+      createdAt: '2026-11-04T08:00:00.000Z',
+      content: 'Komentar pertama.'
+    }
 
-    render(<CommentItem comment={comment} />);
+    render(<CommentItem comment={comment} />)
 
-    const avatar = screen.getByRole("img", { name: "Luky" });
-    expect(avatar).toBeInTheDocument();
-    expect(avatar).toHaveAttribute("src", "https://example.com/avatar.png");
-  });
+    const avatar = screen.getByRole('img', { name: 'Luky' })
+    expect(avatar).toBeInTheDocument()
+    expect(avatar).toHaveAttribute('src', 'https://example.com/avatar.png')
+  })
 
-  it("should display owner initial when avatar is unavailable", () => {
+  it('should display owner initial when avatar is unavailable', () => {
     const comment = {
       owner: {
-        name: "Luky",
-        avatar: null,
+        name: 'Luky',
+        avatar: null
       },
-      createdAt: "2026-11-04T08:00:00.000Z",
-      content: "Komentar pertama.",
-    };
+      createdAt: '2026-11-04T08:00:00.000Z',
+      content: 'Komentar pertama.'
+    }
 
-    render(<CommentItem comment={comment} />);
+    render(<CommentItem comment={comment} />)
 
-    const ownerInitial = screen.getByText("L");
-    expect(ownerInitial).toBeInTheDocument();
-  });
+    const ownerInitial = screen.getByText('L')
+    expect(ownerInitial).toBeInTheDocument()
+  })
 
-  it("should display question mark when owner name is unavailable", () => {
+  it('should display question mark when owner name is unavailable', () => {
     const comment = {
       owner: {
         name: null,
-        avatar: null,
+        avatar: null
       },
-      createdAt: "2026-11-04T08:00:00.000Z",
-      content: "Komentar pertama.",
-    };
+      createdAt: '2026-11-04T08:00:00.000Z',
+      content: 'Komentar pertama.'
+    }
 
-    render(<CommentItem comment={comment} />);
+    render(<CommentItem comment={comment} />)
 
-    const fallbackInitial = screen.getByText("?");
-    expect(fallbackInitial).toBeInTheDocument();
-  });
+    const fallbackInitial = screen.getByText('?')
+    expect(fallbackInitial).toBeInTheDocument()
+  })
 
-  it("should display Unknown User when owner is unavailable", () => {
+  it('should display Unknown User when owner is unavailable', () => {
     const comment = {
       owner: null,
-      createdAt: "2026-11-04T08:00:00.000Z",
-      content: "Komentar pertama.",
-    };
+      createdAt: '2026-11-04T08:00:00.000Z',
+      content: 'Komentar pertama.'
+    }
 
-    render(<CommentItem comment={comment} />);
+    render(<CommentItem comment={comment} />)
 
-    const ownerName = screen.getByText("Unknown User");
-    expect(ownerName).toBeInTheDocument();
-  });
-});
+    const ownerName = screen.getByText('Unknown User')
+    expect(ownerName).toBeInTheDocument()
+  })
+})

@@ -33,17 +33,14 @@ describe('Register Page', () => {
   })
 
   it('should allow user to fill register form', () => {
-    cy.get('input[name="name"]')
-      .type('Budi Santoso')
-      .should('have.value', 'Budi Santoso')
+    cy.get('input[name="name"]').type('Luky Ana')
+    cy.get('input[name="name"]').should('have.value', 'Luky Ana')
 
-    cy.get('input[name="email"]')
-      .type('budi@gmail.com')
-      .should('have.value', 'budi@gmail.com')
+    cy.get('input[name="email"]').type('luky@gmail.com')
+    cy.get('input[name="email"]').should('have.value', 'luky@gmail.com')
 
-    cy.get('input[name="password"]')
-      .type('password123')
-      .should('have.value', 'password123')
+    cy.get('input[name="password"]').type('password123')
+    cy.get('input[name="password"]').should('have.value', 'password123')
   })
 
   it('should register successfully and redirect to login page', () => {
@@ -120,7 +117,7 @@ describe('Register Page', () => {
 
     cy.url().should('include', '/register')
   })
-  
+
   it('should validate minimum password length', () => {
     cy.get('input[name="name"]')
       .type('Budi Santoso')

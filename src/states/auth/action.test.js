@@ -1,9 +1,4 @@
-
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-
-vi.mock('../../utils/api', () => ({
-  default: vi.fn()
-}))
 
 import api from '../../utils/api'
 
@@ -12,6 +7,10 @@ import {
   asyncLogin,
   asyncRegister
 } from './actions'
+
+vi.mock('../../utils/api', () => ({
+  default: vi.fn()
+}))
 
 /**
  * Skenario pengujian untuk auth actions (async thunk)

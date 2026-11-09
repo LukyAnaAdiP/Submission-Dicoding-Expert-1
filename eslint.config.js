@@ -4,6 +4,7 @@ import react from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import { FlatCompat } from '@eslint/eslintrc'
+import cypress from 'eslint-plugin-cypress'
 
 const compat = new FlatCompat({
   baseDirectory: import.meta.dirname
@@ -20,7 +21,14 @@ export default [
     files: ['**/*.{js,jsx}'],
 
     languageOptions: {
-      globals: globals.browser,
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+        ...globals.mocha,
+        cy: 'readonly',
+        Cypress: 'readonly',
+        expect: 'readonly'
+      },
       parserOptions: {
         ecmaFeatures: {
           jsx: true
