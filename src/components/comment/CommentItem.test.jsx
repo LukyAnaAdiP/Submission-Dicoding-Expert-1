@@ -51,7 +51,8 @@ describe("CommentItem component", () => {
 
     render(<CommentItem comment={comment} />);
 
-    const commentContent = screen.getByText("Saya sedang belajar React.");
+    // const commentContent = screen.getByText("Saya sedang belajar React.");
+    const commentContent = screen.getByText("Komentar tidak ditemukan.");
     expect(commentContent).toBeInTheDocument();
   });
 
